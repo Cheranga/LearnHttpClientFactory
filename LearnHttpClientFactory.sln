@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicPattern", "BasicPatter
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicPattern.Tests", "BasicPattern.Tests\BasicPattern.Tests.csproj", "{4BCEA4CB-B982-4048-99E2-44233CA7101D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D69A5C45-F726-4946-A11D-8B3EE73AEFBC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patterns", "Patterns", "{190A2C7B-8617-447B-A1C6-9F9723096846}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +28,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A989C2F1-B990-4C8B-8AB9-6A95ECF77461} = {190A2C7B-8617-447B-A1C6-9F9723096846}
+		{4BCEA4CB-B982-4048-99E2-44233CA7101D} = {D69A5C45-F726-4946-A11D-8B3EE73AEFBC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3A14A7EC-DF25-4D4B-8547-8E50959F4140}
