@@ -1,6 +1,6 @@
-﻿namespace BasicPattern.DTO
+﻿namespace DTO.Responses
 {
-    public class Post
+    public class PostResponse
     {
         public int Id { get; set; }
         public int UserId { get; set; }

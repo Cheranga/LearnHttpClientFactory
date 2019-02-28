@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -6,7 +6,7 @@ using DTO.Responses;
 using Newtonsoft.Json;
 using Xunit;
 
-namespace BasicPattern.Tests
+namespace NamedClientsPattern.Tests
 {
     public class PostsControllerTests : IClassFixture<TestWebApplicationFactory>
     {

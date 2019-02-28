@@ -7,33 +7,33 @@ using DTO.Responses;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace BasicPattern.Controllers
+namespace NamedClientsPattern.Controllers
 {
     [ApiController]
     [Route("/api/[controller]")]
     public class PostsController : ControllerBase
     {
-        private const string FakePostsApi = @"https://jsonplaceholder.typicode.com/posts";
-
         private readonly HttpClient _httpClient;
+        
 
         public PostsController(IHttpClientFactory httpClientFactory)
         {
             if (httpClientFactory == null)
             {
-                throw new ArgumentNullException(nameof(HttpClient));
+                throw new ArgumentNullException(nameof(httpClientFactory));
             }
 
-            _httpClient = httpClientFactory.CreateClient();
+            _httpClient = httpClientFactory.CreateClient("FakePosts");
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var httpResponse = await _httpClient.GetAsync(FakePostsApi).ConfigureAwait(false);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, "/posts");
+            var httpResponse = await _httpClient.SendAsync(httpRequest).ConfigureAwait(false);
             if (!httpResponse.IsSuccessStatusCode)
             {
-                return StatusCode((int) HttpStatusCode.InternalServerError, httpResponse.ReasonPhrase);
+                return StatusCode((int)HttpStatusCode.InternalServerError, httpResponse.ReasonPhrase);
             }
 
             var posts = JsonConvert.DeserializeObject<List<PostResponse>>(await httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false));
